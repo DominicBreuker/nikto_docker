@@ -15,9 +15,12 @@ echo "build docker image"
 TEMPLATE_DIR=$PROJECT_ROOT/templates
 OUTPUT_DIR=$PROJECT_ROOT/outputs
 
+HOST="$1"
+
 ##### RUN #####
 echo "Starting container..."
 
 docker run --rm \
            -it \
-           dominicbreuker/nikto_docker:latest
+           dominicbreuker/nikto_docker:latest \
+           -host $HOST -port 80
